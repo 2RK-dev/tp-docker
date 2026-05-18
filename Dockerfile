@@ -1,3 +1,5 @@
 FROM docker/whalesay
 
-CMD ["cowsay", "meeeuuuhhhh"]
+RUN apk update && apk add --no-cache fortune
+
+CMD ["sh", "-c", "fortune -a | cowsay"]
