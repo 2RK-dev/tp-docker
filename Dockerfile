@@ -1,8 +1,3 @@
-FROM ubuntu:24.04 AS compiler
-RUN apt-get update
-RUN apt-get install -y build-essential
-COPY hello.c /
-RUN make hello
 FROM ubuntu:24.04
-COPY --from=compiler /hello /hello
-CMD /hello
+WORKDIR /workdir
+CMD echo "hello" > /workdir/hello.txt
