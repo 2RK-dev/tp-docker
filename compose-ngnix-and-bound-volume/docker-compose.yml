@@ -1,0 +1,10 @@
+services:
+  nginx-and-bound-volume:
+    container_name: nginx-and-bound-volume
+    image: nginx
+    volumes:
+      - type: bind
+        source: ./html
+        target: /usr/share/nginx/html
+    ports:
+      - 7000:80

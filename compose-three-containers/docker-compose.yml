@@ -1,0 +1,19 @@
+services:
+  compose-three-access-counter:
+    build:
+      context: ./access-counter
+    volumes:
+      - three-containers-data:/servlog
+  compose-three-containers-nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - three-containers-data:/var/log/nginx
+    ports:
+      - 7000:80
+  compose-three-curl:
+    image: curlimages/curl
+    command: http://compose-three-containers-nginx
+
+volumes:
+  three-containers-data:

@@ -1,0 +1,9 @@
+services:
+  bind-mount-exo:
+    container_name: bind-mount-exo
+    build:
+      context: .
+    volumes:
+      - type: bind
+        source: /tmp/test_docker
+        target: /workdir
